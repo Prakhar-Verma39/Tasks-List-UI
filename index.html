@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List UI</title>
+    <link rel="shortcut icon" href="images/icon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.w3schools.com/appml/2.0.3/appml.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="panel-left">
+            <div class="logo"><img src="images/icon.svg" alt="logo" > Bell Labs</div>
+            <div class="nav-option"><img src="images/home.svg" alt="Dashboard" > Dashboard</div>
+            <div class="nav-option"><img src="images/key.svg" alt="Projects"> Projects</div>
+            <div class="nav-option active"><img src="images/mail.svg" alt="Tasks"> Tasks</div>
+            <div class="nav-option"><img src="images/files.svg" alt="Services"> Services</div>
+            <div class="nav-option"><img src="images/message.svg" alt="Chat"> Chat</div>
+        </div>
+        <div class="panel-right">
+            <div class="pr-header">
+                <div class="input">
+                    <input type="text" placeholder="Search...">
+                    <div>Friday, 5 June</div>
+                </div>
+                <div class="list-grid">
+                    <div class="view active">List view</div>
+                    <div class="view">Grid view</div>
+                </div>
+            </div>
+            <div class="pr-body">
+                <div class="heading">
+                    <div>
+                        <h2>Latest Tasks</h2>
+                        <p>A list of all the users in your account including their name, title, email and role.</p>
+                    </div>
+                    <div>
+                        <button type="button">Add more people</button>
+                    </div>
+                </div>
+                <div class="table-contain">
+                    <div class="table">
+                        <table appml-data="dataObj">
+                        <tr>
+                            <td><div><img src="images/input.svg" alt=""></div></td> 
+                            <th>Name</th>
+                            <th>Title</th>
+                            <th>Role</th>
+                        </tr>
+                        <tr class="row" appml-repeat="records">
+                            <td onclick="toggleSelect(this)"><div class="checkbox"></div></td> 
+                            <td>{{Name}}</td>
+                            <td>{{Title}}</td>
+                            <td>{{Role}} <span>Edit</span></td>
+                        </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="pr-footer">
+                <div class="progress-card">
+                    <div>Projects in progress</div>
+                    <div class="info-box">
+                        <div>Deployment in progress</div>
+                        <div>Build failed</div>
+                    </div>
+                    <div>
+                        <p>Improve code quality</p>
+                        <p>Raised by Manu Arora, 2 hours ago</p>
+                    </div>
+                    <div>
+                        <img src="images/commentLight.svg" alt=""><p>17 comments</p>
+                        <img src="images/arrowUp.svg" alt=""><p>23 files modified</p>
+                    </div>
+                </div>
+                <div class="complete-card">
+                    <div>Projects Completed</div>
+                    <div class="info-box">
+                        <div>Deployment in progress</div>
+                        <div>Build passing</div>
+                    </div>
+                    <div>
+                        <p>Deploy hotfix</p>
+                        <p>Raised by Manu Arora, 17 hours ago</p>
+                    </div>
+                    <div>
+                        <img src="images/commentDark.svg" alt=""><p>12 comments</p>
+                        <img src="images/seDark.svg" alt=""><p>2 files modified</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script>
+        var dataObj = {
+        "records": [
+            { "Name": "John Smith", "Title": "Back-end Developer", "Role": "Member" },
+            { "Name": "Jane Doe", "Title": "Full-stack Developer", "Role": "Admin" },
+            { "Name": "Bob Johnson", "Title": "UI Designer", "Role": "Member" },
+            { "Name": "Sarah Lee", "Title": "UI Designer", "Role": "Admin" },
+            { "Name": "Tom Brown", "Title": "Back-end Developer", "Role": "Member" },
+            { "Name": "Emily Davis", "Title": "Full-stack Developer", "Role": "Admin" }
+            ]
+        }
+    </script>
+</body>
+</html>
